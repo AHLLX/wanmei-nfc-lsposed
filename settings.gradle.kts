@@ -18,5 +18,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "mipay_wanmei_lsp"
+rootProject.name = "wanmei-nfc-lsposed"
 include(":app")

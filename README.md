@@ -1,4 +1,4 @@
-# MiPay Wanmei NFC LSP (完美校园 MIUI/HyperOS NFC LSPosed 集成模组)
+# Wanmei NFC LSPosed (完美校园 MIUI/HyperOS NFC 集成模组)
 
 [English](#english) | [中文说明](#中文说明)
 
@@ -30,7 +30,7 @@ LSPosed 模块：在小米智能卡（MiPay）双击电源键刷卡页面注入 
 
 ### 🚀 安装使用
 
-1. **下载 APK**：从 Releases 下载最新 `mipay_wanmei_lsp.apk` 并安装。
+1. **下载 APK**：从 Releases 下载最新 `wanmei-nfc-lsposed_v0.1.0.apk` 并安装。
 2. **启用模块**：在 LSPosed 管理器中启用模块。
 3. **勾选作用域**：
    - `系统框架` (`android`)
@@ -69,7 +69,7 @@ An LSPosed module designed for Xiaomi MIUI and HyperOS devices. It injects a **"
 
 ### 🚀 Quick Start
 
-1. **Install APK**: Download and install `mipay_wanmei_lsp.apk` from Releases.
+1. **Install APK**: Download and install `wanmei-nfc-lsposed_v0.1.0.apk` from Releases.
 2. **Enable Module**: Enable the module in LSPosed Manager.
 3. **Select Scopes**:
    - `System Framework` (`android`)
@@ -86,8 +86,8 @@ An LSPosed module designed for Xiaomi MIUI and HyperOS devices. It injects a **"
 
 ```bash
 # Clone the repository
-git clone https://github.com/YourUsername/mipay_wanmei_lsp.git
-cd mipay_wanmei_lsp
+git clone https://github.com/AHLLX/wanmei-nfc-lsposed.git
+cd wanmei-nfc-lsposed
 
 # Build Release APK
 ./gradlew assembleRelease
