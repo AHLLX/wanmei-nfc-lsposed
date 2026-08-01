@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">完美校园 NFC 集成</string>
+    <string name="xposed_description">在小米智能卡(MiPay)刷卡页面注入完美校园快捷调出按钮，免手动切换默认 NFC 应用，支持直达校园卡 NFC 界面。</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  药丸型按钮背景 - 谷歌 MD3 审美风格
+  采用 Monet 取色盘（Android 12+）:
+    - Surface Container Low: #F3EDF7
+    - Outline: #79747E
+    - Shadow/Elevation 模拟 Material You
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 背景填充 - 略带透明度的 Surface 色 -->
+    <solid android:color="#F3EDF7" />
+
+    <!-- 圆角 - 药丸形（全圆角） -->
+    <corners android:radius="22dp" />
+
+    <!-- 边框 - MD3 Outline 色 -->
+    <stroke
+        android:width="1dp"
+        android:color="#79747E" />
+
+</shape>
