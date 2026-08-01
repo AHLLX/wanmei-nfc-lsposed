@@ -11,8 +11,8 @@ android {
         applicationId = "com.mipay.wanmei.lsp"
         minSdk = 30
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 100
+        versionName = "v0.1.0"
     }
 
     signingConfigs {

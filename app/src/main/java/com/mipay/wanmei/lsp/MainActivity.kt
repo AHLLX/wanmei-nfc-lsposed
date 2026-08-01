@@ -32,7 +32,7 @@ class MainActivity : Activity() {
         layout.addView(titleView)
 
         val subTitleView = TextView(this).apply {
-            text = "MiPay Wanmei Xiaoyuan NFC Integration (LSPosed)"
+            text = "MiPay Wanmei Xiaoyuan NFC Integration v0.1.0"
             textSize = 14f
             setTextColor(Color.parseColor("#6B7280"))
             gravity = Gravity.CENTER
@@ -76,7 +76,7 @@ class MainActivity : Activity() {
                    - 系统框架 / System Framework (android)
                    - 小米智能卡 / MiPay (com.miui.tsmclient)
                 3. 重启手机或强行停止小米智能卡 (Restart or Force-stop com.miui.tsmclient)
-                4. 双击电源键呼出刷卡页，点击左下角「完美校园」即可直达 NFC 校园卡！
+                4. 双击电源键呼出刷卡页，点击「完美校园」即可直达 NFC 校园卡！
             """.trimIndent()
             textSize = 13f
             setTextColor(Color.parseColor("#374151"))
