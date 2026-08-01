@@ -11,7 +11,7 @@ LSPosed 模块：在小米智能卡（MiPay）双击电源键刷卡页面注入 
 
 ### ✨ 功能特性
 
-- **无缝集成**：Hook 小米智能卡 `DoubleClickActivity`，在刷卡页面 GPay 按钮上方注入精致的完美校园胶囊按钮。
+- **无缝集成**：Hook 小米智能卡 `DoubleClickActivity`，在刷卡页面注入精致的完美校园胶囊按钮。
 - **动态 Monet 主题**：自适应系统深色/浅色模式及 Material Design 3 Monet 动态着色，与系统风格完美融合。
 - **免手动切 NFC**：点击按钮自动将系统 `Settings.Secure.nfc_payment_default_component` 修改为完美校园 HCE 服务 (`cn.newcapec.hce.service.CapecHostApduService`) 并刷新 NFC 芯片路由。
 - **跨应用直达**：通过系统框架 (`android`) Hook 放行私有页面启动许可，直接进入完美校园 **`VirtualCard_NFC`** 专属校园卡界面。
@@ -39,28 +39,7 @@ LSPosed 模块：在小米智能卡（MiPay）双击电源键刷卡页面注入 
    ```bash
    adb shell am force-stop com.miui.tsmclient
    ```
-5. **开始使用**：双击电源键唤出刷卡页，点击 GPay 按钮上方的「完美校园」即可快速刷卡！
-
-### 📋 架构设计与工作流程
-
-```
-┌──────────────────────────────────────────────────────────┐
-│              小米智能卡 (DoubleClickActivity)            │
-│                                                          │
-│                                            ┌───────────┐ │
-│                                            │ 完美校园卡│ │  ← 注入 GPay 正上方
-│                                            ├───────────┤ │
-│                                            │   GPay    │ │
-│                                            └───────────┘ │
-└──────────────────────────┬───────────────────────────────┘
-                           │
-                           ▼
-┌──────────────────────────────────────────────────────────┐
-│ 1. 切换 Settings.Secure (nfc_payment_default_component)  │
-│ 2. SystemHook 绕过 exported=false 权限检查                │
-│ 3. 直接拉起 VirtualCard_NFC 专属校园卡界面                │
-└──────────────────────────────────────────────────────────┘
-```
+5. **开始使用**：双击电源键唤出刷卡页，点击「完美校园」按钮即可快速刷卡！
 
 ---
 
@@ -71,7 +50,7 @@ An LSPosed module designed for Xiaomi MIUI and HyperOS devices. It injects a **"
 
 ### ✨ Key Features
 
-- **Seamless UI Integration**: Injects a Material Design 3 pill button stacked vertically above the GPay button inside MiPay's `DoubleClickActivity`.
+- **Seamless UI Integration**: Injects a Material Design 3 pill button inside MiPay's `DoubleClickActivity`.
 - **Dynamic Monet Theme**: Automatically adapts to dark/light modes and Android Monet accent colors.
 - **Instant NFC Switching**: Dynamically changes system `Settings.Secure.nfc_payment_default_component` to Wanmei Xiaoyuan's Host APDU Service (`cn.newcapec.hce.service.CapecHostApduService`) and updates NFC routing on click.
 - **Direct Activity Access**: Intercepts `system_server` permission checks to launch Wanmei's private `VirtualCard_NFC` activity directly.
@@ -99,7 +78,7 @@ An LSPosed module designed for Xiaomi MIUI and HyperOS devices. It injects a **"
    ```bash
    adb shell am force-stop com.miui.tsmclient
    ```
-5. **Usage**: Double-click power button, tap the "完美校园" button stacked above GPay, and swipe your campus card!
+5. **Usage**: Double-click power button, tap the "完美校园" button, and swipe your campus card!
 
 ---
 
