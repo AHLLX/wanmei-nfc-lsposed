@@ -68,16 +68,16 @@ class MainHook {
                 val pw = decor.width
                 val ph = decor.height
                 if (pw > 0 && ph > 0) {
-                    // 放置在屏幕左下角 (leftMargin = 16dp)，完全避免与右下角的 GPay 按钮重叠
+                    // 放置在右下角 GPay 按钮正上方 (topMargin = ph - h - 170dp)，右侧对其
                     btn.layoutParams = FrameLayout.LayoutParams(w, h).apply {
-                        leftMargin = (16 * density).toInt()
-                        topMargin = ph - h - (110 * density).toInt()
+                        leftMargin = pw - w - (16 * density).toInt()
+                        topMargin = ph - h - (170 * density).toInt()
                     }
                 }
             }
 
             decor.post { decor.addView(btn) }
-            NfcUtils.log("完美校园按钮成功注入 DoubleClickActivity 左下角")
+            NfcUtils.log("完美校园按钮成功注入 DoubleClickActivity GPay 按钮上方")
         } catch (e: Throwable) {
             NfcUtils.log("injectButton error: ${e.message}")
         }
