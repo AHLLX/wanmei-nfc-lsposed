@@ -78,11 +78,12 @@ class MainActivity : Activity() {
             text = """
                 💡 使用指南 / Quick Start:
                 1. 在 LSPosed 管理器中启用本模块 (Enable in LSPosed)
-                2. 勾选作用域 (Select Scopes):
-                   - 系统框架 / System Framework (android)
-                   - 小米智能卡 / MiPay (com.miui.tsmclient)
+                2. 勾选作用域 (Select Scopes, 两个都要):
+                   - 系统框架 / System Framework (android) —— 30s 定时还原
+                   - 小米智能卡 / MiPay (com.miui.tsmclient) —— 按钮与切卡
                 3. 重启手机或强行停止小米智能卡 (Restart or Force-stop com.miui.tsmclient)
-                4. 双击电源键呼出刷卡页，点击「完美校园」即可直达 NFC 校园卡！
+                4. 双击电源键呼出刷卡页，单击「完美校园」即切卡（徽标倒计时 xx s，
+                   不跳转页面，直接把手机靠近读卡器）；长按按钮可直达校园卡页面。
             """.trimIndent()
             textSize = 13f
             setTextColor(Color.parseColor("#374151"))
