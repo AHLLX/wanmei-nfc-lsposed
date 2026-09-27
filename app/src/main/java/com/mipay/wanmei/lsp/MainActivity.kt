@@ -32,7 +32,7 @@ class MainActivity : Activity() {
         layout.addView(titleView)
 
         val subTitleView = TextView(this).apply {
-            text = "MiPay Wanmei Xiaoyuan NFC Integration v0.1.0"
+            text = "MiPay Wanmei Xiaoyuan NFC Integration ${appVersionName()}"
             textSize = 14f
             setTextColor(Color.parseColor("#6B7280"))
             gravity = Gravity.CENTER
@@ -58,7 +58,13 @@ class MainActivity : Activity() {
         statusCard.addView(statusTitle)
 
         val statusDesc = TextView(this).apply {
-            text = "包名 (Package): ${NfcUtils.WANMEI_PKG}\nHCE 服务 (Service): ${NfcUtils.getWanmeiHceComponent(this@MainActivity)}"
+            val currentNfc = NfcUtils.readCurrentComponent(this@MainActivity) ?: "(未获取到)"
+            val nfcReady = NfcUtils.isWanmeiComponent(currentNfc)
+            val stateText = if (nfcReady) "完美校园 · 可以刷卡" else "非完美校园 · 未启用"
+            text = "包名 (Package): ${NfcUtils.WANMEI_PKG}\n" +
+                    "HCE 服务 (Service): ${NfcUtils.getWanmeiHceComponent(this@MainActivity)}\n" +
+                    "当前默认 NFC (Current): $currentNfc\n" +
+                    "状态 (State): $stateText"
             textSize = 12f
             setTextColor(Color.parseColor("#4B5563"))
             setPadding(0, 12, 0, 0)
@@ -86,6 +92,19 @@ class MainActivity : Activity() {
         layout.addView(guideView)
 
         setContentView(layout)
+    }
+
+    @Suppress("DEPRECATION")
+    private fun appVersionName(): String {
+        return try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                packageManager.getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(0)).versionName ?: ""
+            } else {
+                packageManager.getPackageInfo(packageName, 0).versionName ?: ""
+            }
+        } catch (t: Throwable) {
+            ""
+        }
     }
 
     private fun isAppInstalled(packageName: String): Boolean {
