@@ -5,6 +5,8 @@
 .DS_Store
 /build
 /app/build
+__pycache__/
+*.pyc
 /mipay_gpay_lsp
 *.ap_
 *.apk
