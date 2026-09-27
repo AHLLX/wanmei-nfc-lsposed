@@ -65,6 +65,17 @@ adb shell dumpsys nfc | grep wallet_role_holder_change
 - **点击后徽标显示「可以刷卡」，但小米钱包页面提示「卡片暂不可用」**：这是小米钱包自己的提示——此刻系统默认钱包确实是完美校园，属预期现象；30 秒后自动还原，或在刷卡页重新双击电源即恢复正常显示。
 - **不想用 30 秒自动还原**：在 [SystemHook.kt](app/src/main/java/com/mipay/wanmei/lsp/SystemHook.kt) 里调整 `REVERT_DELAY_MS` 后重新编译。
 
+### 🤖 自动化验证（可选）
+
+\`\`\`bash
+pip install uiautomator2          # 首次运行会自动向设备推送 u2.jar / AdbKeyboard
+python tools/verify_nfc_flow.py   # 连接设备后自动跑完整流程
+\`\`\`
+
+脚本会自动：重启小米智能卡 → 打开刷卡页 → 用 uiautomator 层级定位注入按钮（点击失败**自动重试**）→
+断言已切到完美校园、倒计时标记已写入 → 等待 30 秒断言自动还原与标记清除，最后打印 PASS/FAIL。
+常用参数：\`--revert 30\`（期望还原秒数）、\`--serial <序列号>\`、\`--tap-retry 4\`。
+
 ---
 
 <a name="english"></a>
@@ -106,6 +117,17 @@ An LSPosed module designed for Xiaomi MIUI and HyperOS devices. It injects a **"
 5. **Usage**: Double-click the power button, tap the "完美校园" button (no page jump), then hold the phone near the reader while the badge counts down `可以刷卡 xx s`. It reverts to Xiaomi Wallet after 30 seconds; **long press** the button to open Wanmei's campus-card page directly.
 
 ---
+
+### 🤖 Automated verification (optional)
+
+\`\`\`bash
+pip install uiautomator2
+python tools/verify_nfc_flow.py
+\`\`\`
+
+The script restarts Xiaomi Smart Card, opens the wallet page, locates the injected button through the
+uiautomator hierarchy (with automatic tap retries), asserts the NFC switch plus the countdown marker,
+then waits for the 30s auto-restoration and prints PASS/FAIL.
 
 ### 🛠️ Building from Source
 
